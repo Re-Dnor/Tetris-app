@@ -26,6 +26,10 @@
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "react/react-in-jsx-scope": "off",
+    "import/prefer-default-export": "off",
+    "no-param-reassign": 0,
+    "no-console": 0,
+    "max-len": ["error", { "code": 120 }],
     "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
     "import/extensions": [
       "error",
@@ -34,10 +38,7 @@
       "ts": "never",
       "tsx": "never"
       }
-    ],
-    "no-param-reassign": 0,
-    "no-console": 0,
-    "max-len": ["error", { "code": 120 }]
+    ]
   },
   "settings": {
     "import/resolver": {
