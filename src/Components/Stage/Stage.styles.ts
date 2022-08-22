@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { STAGE_WIDTH, STAGE_HEIGHT } from '../../setup';
 
 const windowHeight = window.innerHeight;
-const stageSize = windowHeight > 730 ? 30 : 25;
+const stageSize = windowHeight > 768 ? 30 : 25;
 
 export const StyledStage = styled.div`
   display: grid;
