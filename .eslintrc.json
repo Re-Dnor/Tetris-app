@@ -32,6 +32,7 @@
     "max-len": ["error", { "code": 120 }],
     "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
     "react/require-default-props": "off",
+    "consistent-return": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
