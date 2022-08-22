@@ -15,7 +15,6 @@ import { StyledTetrisWrapper, StyledTetris } from './App.styles';
 function App() {
   const [dropTime, setDropTime] = useState<null | number>(null);
   const [gameOver, setGameOver] = useState(true);
-
   const gameArea = useRef<HTMLDivElement>(null);
 
   const {
@@ -56,15 +55,27 @@ function App() {
 
   const move = ({ keyCode, repeat }: { keyCode: number, repeat: boolean}) => {
     if (!gameOver) {
-      if (keyCode === 37) {
-        movePlayer(-1);
-      } else if (keyCode === 39) {
-        movePlayer(1);
-      } else if (keyCode === 40) {
-        if (repeat) return;
-        setDropTime(30);
-      } else if (keyCode === 38) {
-        playerRotate(stage);
+      switch (keyCode) {
+        case 37: {
+          movePlayer(-1);
+          break;
+        }
+        case 39: {
+          movePlayer(1);
+          break;
+        }
+        case 40: {
+          if (repeat) return;
+          setDropTime(30);
+          break;
+        }
+        case 38: {
+          playerRotate(stage);
+          break;
+        }
+        default: {
+          break;
+        }
       }
     }
   };
