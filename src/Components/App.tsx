@@ -9,12 +9,14 @@ import { useGameStatus } from '../hooks/useGameStatus';
 import Stage from './Stage/Stage';
 import Display from './Display/Display';
 import StartButton from './StartButton/StartButton';
+import Modal from './Modal/Modal';
 // Styles
 import { StyledTetrisWrapper, StyledTetris } from './App.styles';
 
 function App() {
   const [dropTime, setDropTime] = useState<null | number>(null);
   const [gameOver, setGameOver] = useState(true);
+  const [showModal, setShowModal] = useState(true);
   const gameArea = useRef<HTMLDivElement>(null);
 
   const {
@@ -90,7 +92,7 @@ function App() {
       updatePlayerPos({ x: 0, y: 1, collided: false });
     } else {
       if (player.pos.y < 1) {
-        console.log('game over');
+        setShowModal(true);
         setGameOver(true);
         setDropTime(null);
       }
@@ -102,8 +104,15 @@ function App() {
     drop();
   }, dropTime);
 
+  const handleCloseModal = (e: React.MouseEvent) => {
+    if (e.currentTarget === e.target) {
+      setShowModal(false);
+    }
+  };
+
   return (
     <StyledTetrisWrapper role="button" tabIndex={0} onKeyDown={move} onKeyUp={keyUp} ref={gameArea}>
+      {showModal && <Modal callback={handleCloseModal} text={`Score: ${score}`} />}
       <StyledTetris>
         <div className="display">
           {gameOver ? (
