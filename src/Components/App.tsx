@@ -16,7 +16,7 @@ import { StyledTetrisWrapper, StyledTetris } from './App.styles';
 function App() {
   const [dropTime, setDropTime] = useState<null | number>(null);
   const [gameOver, setGameOver] = useState(true);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const gameArea = useRef<HTMLDivElement>(null);
 
   const {
