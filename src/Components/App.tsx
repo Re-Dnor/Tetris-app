@@ -46,6 +46,7 @@ function App() {
     // need to focus the window with the key events on start
     if (gameArea.current) gameArea.current.focus();
 
+    setShowModal(false);
     setStage(createStage());
     setDropTime(1000);
     resetPlayer();
@@ -112,7 +113,7 @@ function App() {
 
   return (
     <StyledTetrisWrapper role="button" tabIndex={0} onKeyDown={move} onKeyUp={keyUp} ref={gameArea}>
-      {showModal && <Modal callback={handleCloseModal} text={`Score: ${score}`} />}
+      {showModal && <Modal handleClose={handleCloseModal} handleStart={handleStartGame} text={`Score: ${score}`} />}
       <StyledTetris>
         <div className="display">
           {gameOver ? (

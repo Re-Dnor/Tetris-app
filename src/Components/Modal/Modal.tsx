@@ -1,17 +1,20 @@
 import React from 'react';
 import { StyledModal, StyledModalWrapper, CloseModal } from './Modal.styles';
+import StartButton from '../StartButton/StartButton';
 
 type Props = {
-  callback: (e: React.MouseEvent) => void;
+  handleClose: (e: React.MouseEvent) => void;
+  handleStart: () => void;
   text?: string;
 }
 
-function Modal({ callback, text }: Props) {
+function Modal({ handleClose, handleStart, text }: Props) {
   return (
-    <StyledModalWrapper onClick={callback}>
+    <StyledModalWrapper onClick={handleClose}>
       <StyledModal>
         {text}
-        <CloseModal onClick={callback} />
+        <CloseModal onClick={handleClose} />
+        <StartButton callback={handleStart} />
       </StyledModal>
     </StyledModalWrapper>
   );
