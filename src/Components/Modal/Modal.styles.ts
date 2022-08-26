@@ -19,12 +19,12 @@ export const StyledModalWrapper = styled.div`
   align-items: center;
   justify-content: center;
   background-color: rgba(0,0,0, 0.5);
-  animation: ${smoothAnimation} 2s;
+  animation: ${smoothAnimation} 1.5s;
 `;
 
 export const StyledModal = styled.div`
   width: 300px;
-  height: 150px;
+  height: 250px;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -32,9 +32,10 @@ export const StyledModal = styled.div`
   right: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
   background-color: black;
-  border: 2px solid white;
+  border: 2px solid #777;
   color: white;
 `;
 
@@ -49,7 +50,7 @@ export const CloseModal = styled.div`
   transition: opacity ease 0.5s;
 
   &:hover {
-opacity: 1;
+    opacity: 1;
 };
 
   &:before,
